@@ -1,0 +1,49 @@
+#faq-page {
+    h1 {
+        @include page-title;
+        color: $red;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    }
+    h2 {
+        @include heading-font;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    h3 {
+        @include subheading-font;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    p {
+        strong {
+            font-family: $open-bold;
+        }
+    }
+    .faq-content-wrap {
+        border-right: double #ccc;
+    }
+    #faq-content {
+        .faq-item {
+            margin-bottom: 20px;
+            p {
+                margin-bottom: 0;
+            }
+        }
+    }
+    #faq-questions {
+        ul {
+            @include list-style;
+            li {
+                margin-bottom: 2px;
+                a {
+                    color: inherit;
+                    line-height: 1.2;
+                    &:hover {
+                        color: $orange;
+                    }
+                }
+            }
+        }
+    }
+}

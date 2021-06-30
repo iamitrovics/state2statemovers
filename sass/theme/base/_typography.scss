@@ -1,0 +1,124 @@
+// Import fonts and fonts variables
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+        url('../fonts/OpenSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url('../fonts/OpenSans.woff2') format('woff2'),
+        url('../fonts/OpenSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans Italic';
+    src: url('../fonts/OpenSans-Italic.woff2') format('woff2'),
+        url('../fonts/OpenSans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Crimson Text Bold';
+    src: url('../fonts/CrimsonText-Bold.woff2') format('woff2'),
+        url('../fonts/CrimsonText-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Crimson Text Semibold';
+    src: url('../fonts/CrimsonText-Semibold.woff2') format('woff2'),
+        url('../fonts/CrimsonText-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Crimson Text BoldItalic';
+    src: url('../fonts/CrimsonText-BoldItalic.woff2') format('woff2'),
+        url('../fonts/CrimsonText-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+$open-reg: 'Open Sans Regular';
+$open-italic: 'Open Sans Italic';
+$open-bold: 'Open Sans Bold';
+$crims-bold: 'Crimson Text Bold';
+$crims-boldi: 'Crimson Text BoldItalic';
+$crims-semi: 'Crimson Text Semibold';
+
+$font-main: 'Open Sans Regular';
+$font-heading: 'Crimson Text Bold';
+
+
+
+body { 
+    background-color: #d3a46c;
+	font: {
+		size:$base-size;
+		family: $font-main;
+	}
+	-webkit-text-size-adjust: 100%;  //fix for iOS 
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.78571;
+    font-family: $open-reg;
+    color: #222;
+    margin-bottom: 20px;
+    strong {
+      font-family: $open-bold;
+    }
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+ul {
+    list-style: none;
+    margin:0px;
+    padding:0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+}
+
+// reset
+a {
+    @include animate-fade;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a, button, input, textarea {
+    &:focus {
+        outline: none!important;
+    }
+}
+
+address {
+    margin:0px;
+    padding:0px;
+}
+
+i {
+    font-style: normal;
+}
+

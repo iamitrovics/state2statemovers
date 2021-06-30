@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Crimson Text';
+    src: url('CrimsonText-Semibold.woff2') format('woff2'),
+        url('CrimsonText-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
