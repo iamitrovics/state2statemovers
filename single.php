@@ -79,6 +79,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                         <?php elseif( get_row_layout() == 'accordion' ): ?>
 
+                        <?php elseif( get_row_layout() == 'quote_cta' ): ?>
+
+                            <div class="quote-cta--single">
+                                <span class="title"><?php the_sub_field('cta_title'); ?></span>
+                                <a href="#bottom-form" class="btn-cta"><?php the_sub_field('button_label'); ?></a>
+                            </div>
+                            <!-- // single  -->                                          
+
                         <?php endif; ?>
                     <?php endwhile; ?>
                 <?php endif; ?>            
@@ -94,6 +102,14 @@ $container = get_theme_mod( 'understrap_container_type' );
                 </ul>
             </div>
             <!-- /.blog-share -->
+
+            <div id="masheader-content">
+                <div id="bottom-form">
+                    <?php include (TEMPLATEPATH . '/inc/inc_quote_form.php' ); ?>
+                </div>
+            </div>
+            <!-- // contentn  -->
+
             <div class="blog-navigation">
                 <?php $previous = get_previous_post();
                 $next = get_next_post(); ?>

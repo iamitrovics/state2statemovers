@@ -41,8 +41,7 @@
             }
         }
     }
-    .blog-item {
-        border-bottom: 1px solid #c5c0bc;
+    .blog-item {border-bottom: 1px solid #c5c0bc;
         padding-top: 30px;
         padding-bottom: 30px;
         @include media-breakpoint-down(sm) {
@@ -539,6 +538,31 @@
                     }
                 }
             }
+        }
+    }
+}
+
+// CTA
+.quote-cta--single {
+    background:#5c4341;
+    padding:35px;
+    text-align: center;
+    border-radius:12px;
+    margin-bottom: 30px;
+    span.title {
+        display: block;
+        font-size: 32px;
+        line-height: 1.2;
+        color:$white;
+        margin-bottom: 15px;
+        @include media-breakpoint-down(md) {
+            font-size: 28px;
+        }
+    }
+    a.btn-cta {
+        @include submit-btn;
+        @include media-breakpoint-down(md) {
+            font-size: 16px;
         }
     }
 }
