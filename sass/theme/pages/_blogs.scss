@@ -214,9 +214,15 @@
                 letter-spacing: .09em;
                 display: inline-block;
                 vertical-align: middle;
+                &.meta-author-cat {
+                    a {
+                        color: $orange;
+                    }
+                }
                 &:first-of-type {
                     padding-right: 12px;
                 }
+                
                 a {
                     color: inherit;
                     &:hover {
@@ -238,7 +244,7 @@
             letter-spacing: -.01em;
             line-height: 1.2;
             color: $brown;
-            margin-bottom: 55px;
+            margin-bottom: 20px;
             @include breakpoint (desktop) {
                 font-size: 2.5em;
                 margin-bottom: 45px;

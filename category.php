@@ -1,24 +1,10 @@
-<?php
-/**
- * The template for displaying the author pages
- *
- * Learn more: https://codex.wordpress.org/Author_Templates
- *
- * @package UnderStrap
- */
-
-// Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
-
-get_header();
-$container = get_theme_mod( 'understrap_container_type' );
-?>
+<?php get_header(); ?>
 
     <div id="inner-header">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1><?php the_author(); ?></h1>
+                    <h1><?php single_cat_title('Category: '); ?></h1>
                 </div>
                 <!-- /.col-md-12 -->
             </div>
@@ -31,6 +17,15 @@ $container = get_theme_mod( 'understrap_container_type' );
         <div class="inner-page-in">
 
         <?php
+          $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1; // get current page number
+          $args = array(
+            'posts_per_page' => 8, // the value from Settings > Reading by default
+            'paged'          => $current_page // current page
+          );
+          query_posts( $args );
+           
+          $wp_query->is_archive = true;
+          $wp_query->is_home = false;
            
           while(have_posts()): the_post(); ?>
                               
