@@ -173,7 +173,7 @@
             });
           });   
           
-          $('.blog-content a').attr("target","_blank");
+          $('.blog-content-single a').attr("target","_blank");
 
     });
 })(jQuery);
