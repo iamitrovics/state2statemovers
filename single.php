@@ -61,7 +61,10 @@ $container = get_theme_mod( 'understrap_container_type' );
                             
                         <?php elseif( get_row_layout() == 'full_width_content' ): ?>
 
-                            <?php the_sub_field('content_block'); ?>
+                            <div class="blog-content">
+                                <?php the_sub_field('content_block'); ?>
+                            </div>
+                            <!-- // content  -->
 
                         <?php elseif( get_row_layout() == 'full_width_image' ): ?>
 
