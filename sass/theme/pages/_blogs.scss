@@ -601,7 +601,9 @@
         border: 0;
         background: transparent;
         padding: 16px 65px;
+        padding-left: 25px;
         color: $red!important;
+        font-size: 1.3em;
         @include media-breakpoint-down(md) {
             font-size: 18px;
             padding: 16px 40px;
