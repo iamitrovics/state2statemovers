@@ -34,6 +34,15 @@
         //     position: 'below'
         // });
 
+        jQuery(".default-accordion").accordion({
+		    heightStyle: "content",
+		    header: "h4",
+		    autoHeight: false,
+		    clearStyle: true,
+		    active: false,
+		    collapsible: true,
+		});
+
         // Sticky header
         jQuery(window).scroll(function() {
             if ($(this).scrollTop() > 60) {

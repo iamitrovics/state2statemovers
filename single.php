@@ -95,6 +95,26 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                         <?php elseif( get_row_layout() == 'accordion' ): ?>
 
+                            <div class="default-accordion blog__acc">
+                                <h3><?php the_sub_field('accordion_title'); ?></h3>
+                                <?php if( have_rows('accordion_list') ): ?>
+                                    <?php while( have_rows('accordion_list') ): the_row(); ?>
+
+                                        <div class="faq-box">
+                                            <h4><?php the_sub_field('heading'); ?></h4>
+
+                                            <div>
+                                                <?php the_sub_field('content'); ?>
+                                                <!-- /.faq-box -->
+                                            </div>
+                                            <!-- /.faq-box -->
+                                        </div>
+
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                            </div>
+                            <!-- /.default-accordion -->  
+
                         <?php elseif( get_row_layout() == 'quote_cta' ): ?>
 
                             <div class="quote-cta--single">
