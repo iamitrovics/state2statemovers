@@ -33,7 +33,11 @@ $container = get_theme_mod( 'understrap_container_type' );
     </div>
     <!-- /#inner-header -->
     <div class="inner-page" id="services-page">
-        <div class="inner-page-in">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                <div class="inner-page-in">
 
             <?php if( have_rows('content_layout_regular') ): ?>
                 <?php while( have_rows('content_layout_regular') ): the_row(); ?>
@@ -70,12 +74,49 @@ $container = get_theme_mod( 'understrap_container_type' );
 						</div>
 						<!-- /.row -->
 
+                        <?php elseif( get_row_layout() == 'video' ): ?>
+
+                            <div class="blog-video">
+                                <?php the_sub_field('embedded_code'); ?>
+                            </div>
+                            <!-- // video  -->
+
+                        <?php elseif( get_row_layout() == 'accordion' ): ?>
+
+                            <div class="default-accordion blog__acc">
+                                <h3><?php the_sub_field('accordion_title'); ?></h3>
+                                <?php if( have_rows('accordion_list') ): ?>
+                                    <?php while( have_rows('accordion_list') ): the_row(); ?>
+
+                                        <div class="faq-box">
+                                            <h4><?php the_sub_field('heading'); ?></h4>
+
+                                            <div>
+                                                <?php the_sub_field('content'); ?>
+                                                <!-- /.faq-box -->
+                                            </div>
+                                            <!-- /.faq-box -->
+                                        </div>
+
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                            </div>
+                            <!-- /.default-accordion -->  
+
                     <?php endif; ?>
                 <?php endwhile; ?>
             <?php endif; ?>
-
-        </div>
+            </div>
         <!-- /.inner-page-in -->
+
+            </div>
+                <!-- /.col-md-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+
+        
     </div>
     <!-- /.inner-page -->
 

@@ -34,6 +34,7 @@
                     <div class="col-md-4">
                         <div class="blog-photo">
                             <a href="<?php the_permalink(); ?>">
+                                <span><i class="fal fa-long-arrow-right"></i></span>
                                 <?php
                                 $imageID = get_field('featured_image_blog');
                                 $image = wp_get_attachment_image_src( $imageID, 'blog-image' );

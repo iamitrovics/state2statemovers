@@ -108,6 +108,8 @@
     }
     &#services-page {
         .inner-page-in {
+            margin: 0;
+            width: auto;
             strong {
                 @include regular-text;
                 font-family: $open-bold;
@@ -152,6 +154,17 @@
                 strong {
                     font-weight: normal;
                     font-family: $open-reg;
+                }
+            }
+            .blog-video {
+                iframe {
+                    margin:0px auto;
+                    max-width: 100%;
+                    display: block;
+                    height: 380px;
+                    @include media-breakpoint-down(sm) {
+                        height: 230px;
+                    }
                 }
             }
         }

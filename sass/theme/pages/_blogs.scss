@@ -50,25 +50,63 @@
         }
         .blog-photo {
             overflow: hidden;
+            position:relative;
+            height: 440px;
             @include media-breakpoint-down(sm) {
                 margin-bottom: 30px;
+                height: 300px;
+            }
+            img {
+                @include animate-fade;
+                display: block;
+                margin-bottom: 0;
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
             }
             a {
-                img {
-                    @include animate-fade;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                &:after {
+                    content: '';
                     display: block;
-                    margin-bottom: 0;
-                    object-fit: cover;
-                    height: 440px;
-                    @include media-breakpoint-down(md) {
-                        height: 300px;
-                    }
+                    background-color: rgba($brown, 0.5);
+                    opacity: 0;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    @include animate-fade;
+                    z-index: 1;
                 }
                 &:hover {
-                    img {
-                        -webkit-filter: blur(3px);
-                        filter: blur(3px);
+                    span {
+                        opacity: 1;
+                        margin-top: 0;
                     }
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+                span {
+                    width: 64px;
+                    height: 64px;
+                    background: #fff;
+                    text-align: center;
+                    line-height: 64px;
+                    border-radius: 100%;
+                    @include centre(both);
+                    display: block;
+                    color: #000;
+                    font-size: 24px;
+                    margin-top: 20px;
+                    opacity: 0;
+                    z-index: 2;
+                    @include animate-fade;
                 }
             }
         }
