@@ -1,0 +1,107 @@
+/*===============================
+=           Footer            =
+===============================*/
+
+#page-footer {
+    background-color: $brown;
+	@include bp(lg) {
+    }
+    @include bp(md) {
+    }
+    @include bp(sm-down) {
+    }
+    .footer-content {
+        padding-top: 10px;
+        margin-top: -30px;
+        padding-bottom: 10px;
+        text-align: center;
+        .footer-quote-btn {
+            a {
+                font-family: $crims-bold;
+                display: inline-block;
+                border-radius: 4px;
+                background-color: $orange;
+                color: white;
+                border:0;
+                @include animate-fade;
+                text-align: center;
+                padding: 15px 40px;
+                font-size: 20px;
+                letter-spacing: 0;
+                &:hover {
+                    background-color: $brown;
+                }
+            }
+        }
+        .footer-logo {
+            margin-top: 30px;
+        }
+        .footer-nav {
+            margin-top: 30px;
+            ul {
+                font-size: 0;
+                li {
+                    display: inline-block;
+                    a {
+                        font-family: $open-bold;
+                        font-size: 14px;
+                        color: #fff;
+                        display: block;
+                        padding: 4px 8px;
+                        border-radius: 8px;
+                        @include bp(sm-down) {
+                        }
+                        &:hover {
+                            background-color: $orange;
+                            color: $brown;
+                        }
+                    }
+                }
+            }
+        }
+        .footer-socials {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            ul {
+                li {
+                    display: inline-block;
+                    margin-left: 0.8em;
+                    margin-right: 0.8em;
+                    a {
+                        color: #fff;
+                        font-size: 16px;
+                        &:hover {
+                            color: $orange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .copybar {
+        padding-top: 22px;
+        padding-bottom: 22px;
+        text-align: center;
+        border-top: 2px solid #7a6064;
+        small {
+            @include regular-text;
+            color: $brown-light;
+        }
+    }
+    
+}
+/*=======End of Footer ========*/
+
+
+.footer-widgets {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: #e8dfd5;
+    text-align: center;
+    .trustedpilot-widget {
+        margin-bottom: 40px;
+    }
+}
+
+
+

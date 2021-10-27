@@ -34,17 +34,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<?php the_field('body_code_snippet', 'options'); ?>
 	<?php endif; ?>
 
-  <div class="page-loader">
-            <div class="page-loader-spinner">
-                <div class="page-loading page-loading--wave">
-                    <div class="btx-rect btx-rect--1"></div>
-                    <div class="btx-rect btx-rect--2"></div>
-                    <div class="btx-rect btx-rect--3"></div>
-                    <div class="btx-rect btx-rect--4"></div>
-                    <div class="btx-rect btx-rect--5"></div>
-                </div>
-            </div>
-        </div>
         <header id="header">
             
             <?php if ( get_field( 'display_settings_header_cov', 'options' ) ): ?>

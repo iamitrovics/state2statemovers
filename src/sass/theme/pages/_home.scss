@@ -1,0 +1,171 @@
+#about-area {
+    padding-top: 20px;
+    padding-bottom: 80px;
+    background-color: #e8dfd5;
+    @include bp(sm-down) {
+        text-align: center;
+    }
+    .col-md-4 {
+        @include bp(sm-up) {
+            flex: 0 0 36.2%;
+            max-width: 36.2%;
+        }
+    }
+    .col-md-8 {
+        @include bp(sm-up) {
+            flex: 0 0 63.8%;
+            max-width: 63.8%;
+        }
+    }
+    #history {
+        h2 {
+            text-align: center;
+        }
+        .about-content {
+            @include bp(md-up) {
+                padding-left: 20px;
+            }
+            @include bp(sm-down) {
+                margin-top: 20px;
+            }
+        }
+    }
+    h2 {
+        @include heading-font;
+    }
+    h3 {
+        font-size: 1.875em;
+        line-height: 1.2;
+        font-family: $crims-bold;
+        color: $brown;
+        text-align: center;
+        padding: 30px 10px;
+        margin: 0;
+        @include bp(desktop) {
+            font-size: 1.8em;
+        }
+        @include bp(lg) {
+            font-size: 1.7em;
+        }
+        @include bp(md) {
+            font-size: 1.6em;
+        }
+        @include bp(sm-down) {
+            font-size: 1.5em;
+        }
+    }
+    .about-in {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border-top: 3px double #c5c0bc;
+        border-bottom: 3px double #c5c0bc;
+        @include bp(sm-up) {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .about-content {
+            h2 {
+                text-align: left;
+                margin-bottom: 20px;
+            }
+            p {
+
+            }
+            a.learn-btn {
+                @include learn-btn;
+            }
+        }
+        .about-photo {
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+    .trustpilot-widget {
+        margin-top: 55px;
+        text-align: center;
+    }
+}
+
+#services {
+    padding-top: 20px;
+    padding-bottom: 80px;
+    background-color: #e8dfd5;
+    h2 {
+       @include bp(sm-down) {
+            text-align: center;
+            margin-top: 15px;
+        } 
+    }
+    .col-md-4 {
+        margin-bottom: 30px;
+        .about-photo {
+            overflow: hidden;
+            height: 250px;
+            position:relative;
+            margin-bottom: 10px;
+            @include bp(sm-down) {
+                height: 240px;
+            }
+            img {
+                display: block;
+                @include animate-fade;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+            a {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                &:after {
+                    content: '';
+                    display: block;
+                    background-color: rgba($brown, 0.5);
+                    opacity: 0;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    border-radius: 8px;
+                    @include animate-fade;
+                    z-index: 1;
+                }
+                &:hover {
+                    span {
+                        opacity: 1;
+                        margin-top: 0;
+                    }
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+                span {
+                    width: 64px;
+                    height: 64px;
+                    background: #fff;
+                    text-align: center;
+                    line-height: 64px;
+                    border-radius: 100%;
+                    @include centre(both);
+                    display: block;
+                    color: #000;
+                    font-size: 24px;
+                    margin-top: 20px;
+                    opacity: 0;
+                    z-index: 2;
+                    @include animate-fade;
+                }
+            }
+        }
+        a.learn-btn {
+            @include learn-btn;
+        }
+    }
+}

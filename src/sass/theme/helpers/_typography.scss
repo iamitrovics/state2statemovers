@@ -1,0 +1,255 @@
+// Import fonts and fonts variables
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+        url('../fonts/OpenSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans Regular';
+    src: url('../fonts/OpenSans.woff2') format('woff2'),
+        url('../fonts/OpenSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans Italic';
+    src: url('../fonts/OpenSans-Italic.woff2') format('woff2'),
+        url('../fonts/OpenSans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Crimson Text Bold';
+    src: url('../fonts/CrimsonText-Bold.woff2') format('woff2'),
+        url('../fonts/CrimsonText-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Crimson Text Semibold';
+    src: url('../fonts/CrimsonText-Semibold.woff2') format('woff2'),
+        url('../fonts/CrimsonText-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Crimson Text BoldItalic';
+    src: url('../fonts/CrimsonText-BoldItalic.woff2') format('woff2'),
+        url('../fonts/CrimsonText-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+$open-reg: 'Open Sans Regular';
+$open-italic: 'Open Sans Italic';
+$open-bold: 'Open Sans Bold';
+$crims-bold: 'Crimson Text Bold';
+$crims-boldi: 'Crimson Text BoldItalic';
+$crims-semi: 'Crimson Text Semibold';
+
+$font-main: 'Open Sans Regular';
+$font-heading: 'Crimson Text Bold';
+
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.fa, .fab, .fas, .fal, .far {
+    font-family: 'icomoon';
+}
+
+
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?tvdo5x');
+    src:  url('../fonts/icomoon.eot?tvdo5x#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?tvdo5x') format('truetype'),
+      url('../fonts/icomoon.woff?tvdo5x') format('woff'),
+      url('../fonts/icomoon.svg?tvdo5x#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+  .icon-yelp:before, .fa-yelp:before {
+    content: "\e910";
+  }
+  
+  .icon-google-plus-g:before, .fa-google-plus-g:before {
+    content: "\e900";
+  }
+  .icon-youtube:before, .fa-youtube:before {
+    content: "\e901";
+  }
+  .icon-instagram:before, .fa-instagram:before {
+    content: "\e902";
+  }
+  .icon-twitter:before, .fa-twitter:before {
+    content: "\e903";
+  }
+  .icon-facebook-f:before, .fa-facebook-f:before  {
+    content: "\e904";
+  }
+  .icon-search-plus:before, .fa-search-plus:before {
+    content: "\e905";
+  }
+  .icon-times:before, .fa-times:before {
+    content: "\e906";
+  }
+  .icon-search:before, .fa-search:before {
+    content: "\e907";
+  }
+  .icon-star:before, .fa-star:before {
+    content: "\e908";
+  }
+  .icon-phone:before, .fa-phone:before {
+    content: "\e909";
+  }
+  .icon-angle-right:before, .fa-angle-right:before {
+    content: "\e90a";
+  }
+  .icon-angle-left-o:before, .fa-angle-left-o:before  {
+    content: "\e90b";
+  }
+  .icon-angle-right-o:before, .fa-angle-right-o:before {
+    content: "\e90c";
+  }
+  .icon-plus:before, .fa-plus:before {
+    content: "\e90d";
+  }
+  .icon-long-arrow-left:before, .fa-long-arrow-left:before {
+    content: "\e90e";
+  }
+  .icon-long-arrow-right:before, .fa-long-arrow-right:before {
+    content: "\e90f";
+  }
+  
+
+
+body { 
+    padding: 0;
+  margin: 0;
+    background-color: #d3a46c;
+    font: {
+        size:$base-size;
+        family: $font-main;
+    }
+    -webkit-text-size-adjust: 100%;  //fix for iOS 
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+}
+
+p {
+     margin-top: 0;
+    font-size: 15px;
+    line-height: 1.78571;
+    font-family: $open-reg;
+    color: #222;
+    margin-bottom: 20px;
+    strong {
+      font-family: $open-bold;
+    }
+    a {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+ul {
+    list-style: none;
+    margin:0px;
+    padding:0px;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.75rem;
+}
+h4 {
+    font-size: 1.5rem;
+}
+
+
+
+// reset
+a {
+    @include animate-fade;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a, button, input, textarea {
+    &:focus {
+        outline: none!important;
+    }
+}
+
+button, input[type="submit"] {
+    @include animate-fade;
+    cursor: pointer;
+}
+
+address {
+    margin:0px;
+    padding:0px;
+}
+iframe {
+    border:0;
+}
+
+i {
+    font-style: normal;
+}
+
+#secondary img, article img, figure, img, img.wp-post-image {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+}

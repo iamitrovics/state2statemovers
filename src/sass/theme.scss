@@ -1,0 +1,30 @@
+@import "theme/base/theme_variables";  // Theme Variables
+
+@import "theme/helpers/mixins"; // fonts styling etc
+@import "theme/helpers/typography"; // fonts styling etc
+@import "theme/helpers/grids"; // grids
+
+// Vendors
+//@import "theme/vendors/slick"; // slick
+@import "theme/vendors/datepicker"; // datepicker
+@import "theme/vendors/selectpicker"; // selectpicker
+@import "theme/vendors/checkbtn"; // check and radio buttons
+@import "theme/vendors/modal"; // modal
+@import "theme/vendors/fancybox"; // fancybox
+
+
+
+// general layouts
+@import "theme/components/header"; // Header
+@import "theme/components/content"; // Content
+@import "theme/components/footer"; // Footer
+@import "theme/components/nav"; // navigation
+
+// pages
+@import "theme/pages/home"; // Homepage
+@import "theme/pages/city"; // City
+@import "theme/pages/faq"; // Faq
+@import "theme/pages/contact"; // Contact
+@import "theme/pages/blogs"; // Blogs
+@import "theme/pages/gallery"; // Gallery
+@import "theme/pages/reviews"; // Reviews

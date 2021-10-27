@@ -94,7 +94,20 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<?php else: ?>
 	<?php endif; ?>
 
-  
+	<div class="modal-overlay disclaimer-modal" data-my-element="tooltip-modal" id="tooltip-modal">
+		<div class="modal" data-my-element="tooltip-modal">
+			<a class="close-modal">
+				<img src="<?php bloginfo('template_directory'); ?>/img/ico/close.svg" alt="">
+			</a>
+			<!-- close modal -->
+			<div class="disclaimer-modal-wrap">
+				<?php the_field('tooltip_content_modal', 'options'); ?>        
+			</div>
+			<!-- /.disclaimer-modal-wrap -->
+		</div>
+		<!-- modal -->
+	</div>
+
     <?php wp_footer(); ?>
 
 	<?php if( get_field('footer_code_snippet', 'options') ): ?>

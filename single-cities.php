@@ -127,20 +127,3 @@ $container = get_theme_mod( 'understrap_container_type' );
 get_footer();
 ?>
 
-<!-- Modal -->
-<div class="modal fade" id="tooltip-modal" tabindex="-1" role="dialog" aria-labelledby="tooltip-modalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-    
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"><i class="fal fa-times"></i></span>
-        </button>
-
-        <?php the_field('tooltip_content_modal', 'options'); ?>
-
-      </div>
-      <!-- // body  -->
-    </div>
-  </div>
-</div>
