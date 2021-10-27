@@ -5312,8 +5312,8 @@ if (typeof jQuery === 'undefined') {
       jQuery('.main-menu-sidebar').addClass("menu-active");
     });
     jQuery('.main-menu-sidebar .close-menu-btn, .menu-overlay').click(function () {
-      jQuery('.main-menu-sidebar').removeClass("menu-active"); //jQuery("html,body").removeClass("fixed");
-
+      jQuery('.main-menu-sidebar').removeClass("menu-active");
+      jQuery("html,body").removeClass("fixed");
       jQuery(".menu-overlay").removeClass("active-overlay");
     }); // $('#city-gallery-slider [data-fancybox="city-gal"]').fancybox();
     //$('#gallery-photos [data-fancybox="gallery"]').fancybox();

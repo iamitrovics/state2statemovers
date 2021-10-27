@@ -79,7 +79,7 @@
 
         jQuery('.main-menu-sidebar .close-menu-btn, .menu-overlay').click(function () {
             jQuery('.main-menu-sidebar').removeClass("menu-active");
-            //jQuery("html,body").removeClass("fixed");
+            jQuery("html,body").removeClass("fixed");
             jQuery(".menu-overlay").removeClass("active-overlay");
         });
 
