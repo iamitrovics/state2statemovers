@@ -99,7 +99,7 @@
             margin-top: 15px;
         } 
     }
-    .col-md-4 {
+    .col-md-4, .col-md-6 {
         margin-bottom: 30px;
         .about-photo {
             overflow: hidden;
@@ -166,6 +166,17 @@
         }
         a.learn-btn {
             @include learn-btn;
+        }
+    }
+    &.services-module {
+        padding-bottom: 20px;
+        .about-photo {
+            img {
+                border: 5px solid $brown;
+            }
+        }
+        h2 {
+            margin: 15px 0 10px 0 !important;
         }
     }
 }

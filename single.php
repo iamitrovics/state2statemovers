@@ -167,6 +167,50 @@ $container = get_theme_mod( 'understrap_container_type' );
                             <?php endif; ?>
                             <?php wp_reset_postdata(); ?>
 
+                        <?php elseif( get_row_layout() == 'services_module' ): ?>
+
+                            <div id="services" class="services-module">
+                                <div class="row">
+
+                                    <?php
+                                        $post_objects = get_sub_field('services_list_blog_page');
+
+                                        if( $post_objects ): ?>
+                                            <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
+                                                <?php setup_postdata($post); ?>
+                                                                    
+                                                <div class="col-md-4">
+                                                    <div class="about-photo">
+                                                        <a href="<?php the_permalink(); ?>" target="_blank">
+                                                            <span><i class="fal fa-long-arrow-right"></i></span>
+                                                            <?php
+                                                            $imageID = get_field('featured_image_service_cont');
+                                                            $image = wp_get_attachment_image_src( $imageID, 'galthumb-image' );
+                                                            $alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+                                                            ?> 
+
+                                                            <img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" /> 
+                                                        </a>
+                                                    </div>
+                                                    <!-- /.about-photo -->
+                                                    <div class="about-content">
+                                                        <h2><?php the_title(); ?></h2>
+                                                        <a href="<?php the_permalink(); ?>" class="learn-btn" target="_blank">Learn more</a>
+                                                        <!-- /.learn-btn -->
+                                                    </div>
+                                                    <!-- /.about-content -->
+                                                </div>
+                                                <!-- /.col-md-4 -->
+
+                                            <?php endforeach; ?>
+                                        <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                                    <?php endif; ?>
+
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.services-list -->
+
                         <?php elseif( get_row_layout() == 'table' ): ?>
 
                             <table style="width:100%" class="single-table">
