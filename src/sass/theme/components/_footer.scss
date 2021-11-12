@@ -103,5 +103,106 @@
     }
 }
 
+// Fixed cta
+#fixed-cta {
+    position: fixed;
+    bottom:15px;
+    right:15px;
+    z-index:9999;
+    &:hover {
+        span.label {
+            opacity: 1;
+            margin-bottom: 10px;
+        }
+    }
+    span.label {
+        display: block;
+        text-align: center;
+        font-size: 19px;
+        font-family: $font-heading;
+        color:$white;
+        margin-bottom: 0px;
+        @include animate-fade;
+        opacity: 0;
+        position: relative;
+        @include bp(sm-down) {
+            display: none;
+        }
+    }
+    a {
+        display: block;
+        height: 62px;
+        line-height: 62px;
+        padding-left: 65px;
+        padding-right: 30px;
+        background:$red;
+        color:$white;
+        font-size: 18px;
+        border-radius: 9999px;
+        box-shadow: 0 3px 2px 2px rgba(0, 0, 0 , 0.31%);
+        position: relative;
+        animation: pulse 1.5s ease infinite;
+        @include bp(sm-down) {
+            padding-right: 0px;
+            padding-left: 0px;
+            padding:10px;
+            height: auto;
+        }
+        span {
+            @include bp(sm-down) {
+                display: none;
+            }            
+        }
+        strong {
+            @include bp(sm-down) {
+                display: none;
+            }
+        }
+        &:hover {
+            background:$brown;
+            img {
+                transform: rotate(-33deg);
+            }
+        }
+        small {
+            width: 36px;
+            height: 36px;
+            background:$white;
+            border-radius: 100%;
+            position: relative;
+            display: block;
+            @include centre(y);
+            left:15px;
+            text-align: center;
+            line-height: 34px;
+            @include bp(sm-down) {
+                background:$brown;
+                width: 50px;
+                height: 50px;
+                line-height: 47px;
+                @include clear-pos;
+            }
+            img {
+                width: 20px;
+                @include animate-fade;
+                @include bp(sm-down) {
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+    }
+}
 
-
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity:1 ;
+    }
+  }

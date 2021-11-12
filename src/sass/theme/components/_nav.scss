@@ -376,7 +376,7 @@
 ====================================*/
 
 .menu-overlay {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.8);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -393,6 +393,15 @@
 .active-overlay {
     opacity: 1;
     visibility: visible;
+}
+
+.active-overlay--cta {
+    opacity: 1;
+    visibility: visible;
+    @include bp(sm-down) {
+        opacity: 0;
+        visibility: hidden;        
+    }
 }
 
 .main-menu-sidebar {

@@ -1,6 +1,6 @@
 {
 	"browserSyncOptions": {
-		"proxy": "http://localhost/state2/",
+		"proxy": "http://localhost:81/morph/state2statemovers/wplocal/",
 		"notify": false,
 		"files": ["./css/*.min.css", "./js/*.min.js", "./**/*.php"]
 	},

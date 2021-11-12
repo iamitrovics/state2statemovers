@@ -108,6 +108,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<!-- modal -->
 	</div>
 
+	<div id="fixed-cta">
+		<span class="label">Get a Free Estimate</span>
+		<a href="tel:<?php the_field('main_phone_number_top_gen', 'options'); ?>"><small><img src="<?php bloginfo('template_directory'); ?>/img/ico/phone-solid.svg" alt=""></small><span>Call: </span> <strong><?php the_field('main_phone_number_top_gen', 'options'); ?></strong></a>
+	</div>
+	<!-- // fixed cta  -->
+
     <?php wp_footer(); ?>
 
 	<?php if( get_field('footer_code_snippet', 'options') ): ?>

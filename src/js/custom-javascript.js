@@ -205,5 +205,9 @@
             modal.removeClass('active');
         });
 
+        jQuery("#fixed-cta").hover(function () {
+            jQuery(".menu-overlay").toggleClass("active-overlay--cta");
+        });        
+
     });
 })(jQuery);
