@@ -10,7 +10,7 @@ get_header(); ?>
             <div class="col-md-12">
                 <div id="masheader-content">
                     <h1><?php the_field('main_title_hero_home'); ?></h1>
-                    <span class="header-subtitle"><a href="<?php the_field('button_link_hero_home'); ?>"><?php the_field('button_label_hero_home'); ?></a></span>
+                    <span class="header-subtitle"><a href="<?php the_field('button_link_hero_home'); ?>"> <img src="<?php bloginfo('template_directory'); ?>/img/ico/phone-solid.svg" alt=""> <?php the_field('button_label_hero_home'); ?></a></span>
                     <!-- /.header-subtitle -->
                     <?php include (TEMPLATEPATH . '/inc/inc_quote_form.php' ); ?>
                 </div>

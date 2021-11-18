@@ -266,15 +266,17 @@
             text-align: center;
             background-color: $orange;
             margin-bottom: 20px;
-            background-color: red;
+            background-color:#d3a46c;
             padding: 3px;
             border-radius: 35px;
             padding-top: 10px;
             margin-left: auto;
             margin-right: auto;
             max-width: 625px;
+            color:$brown;
             a {
                 color:$white;
+                color:$brown;
             }
             @include bp(desktop) {
                 font-size: 1.8em;
@@ -289,6 +291,32 @@
             @include bp(sm-down) {
                 font-size: 1.2em;
                 padding-bottom: 5px;
+            }
+            strong {
+                background:red;
+                padding:5px;
+                border-radius: 9999px;
+                padding-top: 10px;
+                padding-left: 15px;
+                padding-right: 15px;
+                margin-left: 5px;
+                margin-right: 5px;
+                color:$white;
+                @include bp(sm-down) {
+                    margin-left: 2px;
+                    margin-right: 2px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+            }
+            img {
+                width: 24px;
+                position: relative;
+                left:-12px;
+                top:-5px;
+                @include bp(sm-down) {
+                    display: none;
+                }
             }
         }
         .get-quote {
