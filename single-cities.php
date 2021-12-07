@@ -42,7 +42,49 @@ $container = get_theme_mod( 'understrap_container_type' );
                         <?php while( have_rows('content_layout_city_page') ): the_row(); ?>
 
                             <?php if( get_row_layout() == 'full_width_content' ): ?>
+
                                 <?php the_sub_field('content_block'); ?>
+
+                            <?php elseif( get_row_layout() == 'image_left_text_right' ): ?>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="image-holder">
+                                            <?php
+                                            $imageID = get_sub_field('featured_image');
+                                            $image = wp_get_attachment_image_src( $imageID, 'big-image' );
+                                            $alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+                                            ?> 
+
+                                            <img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" />                         
+                                        </div>
+                                    </div> <!-- col-md-6 -->
+                                    <div class="col-md-6">
+                                        <?php the_sub_field('content_block'); ?>
+                                    </div> <!-- col-md-6 -->
+                                </div>
+                                <!-- /.row -->   
+
+                            <?php elseif( get_row_layout() == 'image_right_text_left' ): ?>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <?php the_sub_field('content_block'); ?>
+                                    </div> <!-- col-md-6 -->
+                                    <div class="col-md-6">
+                                        <div class="image-holder">
+                                            <?php
+                                            $imageID = get_sub_field('featured_image');
+                                            $image = wp_get_attachment_image_src( $imageID, 'big-image' );
+                                            $alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+                                            ?> 
+
+                                            <img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" />                         
+                                        </div>
+                                    </div> <!-- col-md-6 -->
+                                </div>
+                                <!-- /.row -->   
+
                             <?php elseif( get_row_layout() == 'full_width_image' ):  ?>
 
                                 <div class="image-holder">
@@ -55,23 +97,45 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <img class="img-responsive" alt="<?php echo $alt_text; ?>" src="<?php echo $image[0]; ?>" />                         
                                 </div>
 
-                                <?php elseif( get_row_layout() == 'gallery' ): ?>
-                                    
-                                    <div class="row">
+                            <?php elseif( get_row_layout() == 'accordion' ): ?>
 
-                                        <?php 
-                                        $images = get_sub_field('photo_gallery');
-                                        if( $images ): ?>
-                                            <?php foreach( $images as $image ): ?>
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo $image['sizes']['thumb-image']; ?>" class="img-responsive" alt="<?php echo $image['alt']; ?>" />
+                                <div class="default-accordion blog__acc">
+                                    <h3><?php the_sub_field('accordion_title'); ?></h3>
+                                    <?php if( have_rows('accordion_list') ): ?>
+                                        <?php while( have_rows('accordion_list') ): the_row(); ?>
+
+                                            <div class="faq-box">
+                                                <h4><?php the_sub_field('heading'); ?></h4>
+
+                                                <div>
+                                                    <?php the_sub_field('content'); ?>
+                                                    <!-- /.faq-box -->
                                                 </div>
-                                                <!-- /.col-md-3 -->
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>                
+                                                <!-- /.faq-box -->
+                                            </div>
 
-                                    </div>
-                                    <!-- /.row -->                                
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                                </div>
+                                <!-- /.default-accordion -->  
+
+                            <?php elseif( get_row_layout() == 'gallery' ): ?>
+                                    
+                                <div class="row">
+
+                                    <?php 
+                                    $images = get_sub_field('photo_gallery');
+                                    if( $images ): ?>
+                                        <?php foreach( $images as $image ): ?>
+                                            <div class="col-md-3">
+                                                <img src="<?php echo $image['sizes']['thumb-image']; ?>" class="img-responsive" alt="<?php echo $image['alt']; ?>" />
+                                            </div>
+                                            <!-- /.col-md-3 -->
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>                
+
+                                </div>
+                                <!-- /.row -->                                
 
                             <?php endif; ?>
                         <?php endwhile; ?>
