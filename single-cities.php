@@ -141,6 +141,13 @@ $container = get_theme_mod( 'understrap_container_type' );
                         <?php endwhile; ?>
                     <?php endif; ?>
 
+                    <div id="masheader-content">
+                        <div id="bottom-form">
+                            <?php include (TEMPLATEPATH . '/inc/inc_quote_form.php' ); ?>
+                        </div>
+                    </div>
+                    <!-- // contentn  -->
+
                     </div>
                     <!-- /.city-content -->
                 </div>

@@ -29,6 +29,8 @@
         }
     }
     .city-form {
+        position: sticky;
+        top: 80px;
         @include bp(lg-down) {
             margin-top: 30px;
         }
