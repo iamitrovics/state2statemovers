@@ -118,8 +118,50 @@
     }
     &#services-page {
         .inner-page-in {
-            margin: 0;
-            width: auto;
+            margin: 0% 10% 0% 10%;
+            padding: 40px;
+            padding-bottom: 100px;
+            border-radius: 4px 4px 0px 0px;
+            background-color: #e8dfd5;
+            @include bp(desktop) {
+                margin: 0% 5% 0% 5%;
+                padding-bottom: 80px;
+            }
+            @media (max-width:1199px) {
+                width: 930px;
+                max-width: 930px;
+                margin: 0 auto;
+            }
+            @include bp(lg) {
+                padding-bottom: 70px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            @include bp(md) {
+                width: 690px;
+                max-width: 690px;
+                margin: 0 auto;
+                padding-bottom: 60px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            @include bp(sm-down) {
+                width: 100%;
+                margin: 0 auto;
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-bottom: 50px;
+            }
+            ul {
+                @include list-style;
+            }
+            img {
+                margin-bottom: 30px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                border:5px solid $white;
+            }
             strong {
                 @include regular-text;
                 font-family: $open-bold;
@@ -158,8 +200,11 @@
                 font-family: $open-bold;
                 color: #222222;
                 font-size: 20px;   
-                margin-bottom: 20px;             
-            }            
+                margin-bottom: 20px;  
+                &.services-page-heading {
+                    @include heading-font;
+                }           
+            }    
             li {
                 strong {
                     font-weight: normal;
@@ -182,6 +227,7 @@
                     width: 100%;
                 }
             }
+            
         }
     }
 }

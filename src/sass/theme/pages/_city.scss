@@ -1,4 +1,4 @@
-#city-page {
+#city-page, #services-page {
     h2 {
         margin-top: 0!important;
     }
@@ -31,6 +31,11 @@
     .city-form {
         position: sticky;
         top: 80px;
+        &.services-page {
+            h2 {
+                @include heading-font;
+            }
+        }
         @include bp(lg-down) {
             margin-top: 30px;
         }
