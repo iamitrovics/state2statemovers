@@ -101,8 +101,17 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     
                                     <div class="top-search"><a href="#"><i class="fal fa-search"></i></a></div>
                                     <!-- /.top-search -->
-                                    <div class="top-phone"><a href="tel:<?php the_field('main_phone_number_top_gen', 'options'); ?>"> <i class="fas fa-phone"></i> <?php the_field('main_phone_number_top_gen', 'options'); ?></a></div>
+
+                                    <?php 
+                                    $values = get_field( 'phone_number_city_sidebar' );
+                                    if ( $values ) { ?>
+                                        <div class="top-phone"><a href="tel:<?php the_field('phone_number_city_sidebar'); ?>"> <i class="fas fa-phone"></i> <?php the_field('phone_number_city_sidebar'); ?></a></div>
+                                    <?php 
+                                    } else { ?>
+                                        <div class="top-phone"><a href="tel:<?php the_field('main_phone_number_top_gen', 'options'); ?>"> <i class="fas fa-phone"></i> <?php the_field('main_phone_number_top_gen', 'options'); ?></a></div>
+                                    <?php } ?>
                                     <!-- /.top-phone -->
+
                                 </div>
                                 <div id="mobile-menu--btn">
                                     <span class="menu-btn">
