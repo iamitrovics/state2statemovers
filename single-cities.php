@@ -143,10 +143,75 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                     <div id="masheader-content">
                         <div id="bottom-form">
+                            <div class="contact-title">
+                            <span class="header-subtitle"><a href="tel:<?php the_field('phone_number_city_sidebar'); ?>">  Call <strong><?php the_field('phone_number_city_sidebar'); ?></strong>  to get a quote NOW</a></span>
+                            </div>
+                            <!-- // title  -->
                             <?php include (TEMPLATEPATH . '/inc/inc_quote_form.php' ); ?>
                         </div>
                     </div>
                     <!-- // contentn  -->
+
+                    <div id="city-reviews">
+                        <h4>Reviews</h4>
+                        <div class="row reviews-list">
+
+                        <?php
+                            $post_objects = get_field('reviews_list_for_schema');
+
+                            if( $post_objects ): ?>
+                                <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
+                                    <?php setup_postdata($post); ?>
+
+
+                                <div class="col-md-6">
+                                    <div class="review-item">
+                                        <div class="star-area">
+                                            <span class="mr-star-rating"> 
+
+                                                <?php if (get_field('rating_reviewer') == '5') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } elseif (get_field('rating_reviewer') == '4') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } elseif (get_field('rating_reviewer') == '3') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } elseif (get_field('rating_reviewer') == '2') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } elseif (get_field('rating_reviewer') == '1') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } ?>   
+
+                                            </span>
+                                        </div>
+                                        <div class="review-text">
+                                            <?php the_field('review_content_text'); ?>
+                                        </div>
+                                        <!-- /.review-text -->
+                                        <span class="review-author"><?php the_title(); ?></span>
+                                    </div>
+                                    <!-- /.review-item -->
+                                </div>
+                                <!-- /.col-md-6 -->
+
+                                <?php endforeach; ?>
+                            <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                        <?php endif; ?>             
+
+                        </div>
+                        <!-- /.row -->
+
+                    </div>
+                    <!-- // city reviews  -->
 
                     </div>
                     <!-- /.city-content -->

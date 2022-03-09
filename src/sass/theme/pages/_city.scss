@@ -26,15 +26,32 @@
                 text-decoration: underline;
                 color: $orange;
             }
+            a {
+                text-decoration: underline;
+                color:$red;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
         }
     }
     .city-form {
         position: sticky;
         top: 80px;
+        background:$brown;
+        padding:25px;
+        border-radius: 6px;
         &.services-page {
             h2 {
                 @include heading-font;
+                color:$white;
             }
+        }
+        h2 {
+            color:$white;
+        }
+        span.label {
+            color:$white;
         }
         @include bp(lg-down) {
             margin-top: 30px;
@@ -42,7 +59,7 @@
         form {
             padding-bottom: 20px;
             .form-group {
-                margin-bottom: 5px;
+                margin-bottom: 15px;
             }
             input[type="text"], input[type="number"], input[type="email"], input[type="tel"], textarea, .bootstrap-select .btn {
                 @include input-style;
@@ -58,7 +75,7 @@
             .control--checkbox {
                 font-size: 14px;
                 padding-left: 25px;
-                color: $brown;
+                color: $white;
                 font-family: $open-reg;
                 display: block;
                 margin-bottom: 5px;
@@ -82,6 +99,10 @@
                 @include submit-btn;
                 margin-top: 10px;
                 margin-bottom: 10px;
+                &:hover {
+                    background:$brown-light;
+                    color:$black;
+                }
             }
         }
         .call-us-area {
@@ -90,16 +111,18 @@
             p {
                 font-family: $crims-bold;
                 font-size: 18px;
-                color: $brown;
+                color: $white;
                 margin-bottom: 10px;
             }
             a {
                 display: block;
                 margin-bottom: 20px;
                 text-align: center;
+                color:$orange;
                 >strong {
                     @include heading-font;
                     @include animate-fade;
+                    color:$orange;
                     &:hover {
                         color: $orange;
                     }
@@ -151,8 +174,25 @@
                     display: inline-block;
                     margin-left: 5px;
                     margin-right: 5px;
+                    &:hover {
+                        i {
+                            background:$white;
+                            color:$orange;
+                        }
+                    }
                 }
             }
         }
+    }
+}
+
+#city-reviews {
+    border-radius: 9px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    h4 {
+        margin-bottom: 30px;
+        color:$orange;
+        font-size: 32px;
     }
 }

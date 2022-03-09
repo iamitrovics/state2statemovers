@@ -70,6 +70,46 @@ get_header();
                             <?php endif; ?>                        
                             
                         </ul>
+
+                        <script type="application/ld+json">
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+
+                        <?php if( have_rows('faq_list_repe', $services) ): ?>
+                            <?php $rowCount = count( get_field('faq_list_repe', $services) ); //GET THE COUNT ?>
+                            <?php $i = 1; ?>
+                            <?php while( have_rows('faq_list_repe', $services) ): the_row(); ?>
+
+                                <?php // vars
+                                    $service = get_sub_field('question');
+                                    $description = get_sub_field('answer', false, false);
+                                ?>
+
+                                {
+                                    "@type": "Question",
+                                    "name": "<?php echo $service; ?>",
+                                    "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "<?php echo strip_tags($description); ?>"
+                                    }
+                                }
+
+
+                                <?php if($i < $rowCount): ?>
+                                    ,
+                                <?php endif; ?>
+                                <?php $i++; ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>									
+                        
+
+                            
+                            ]
+                        }
+                    </script>
+
                     </div>
                     <!-- /#faq-questions -->
                 </div>

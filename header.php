@@ -34,6 +34,21 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<?php the_field('body_code_snippet', 'options'); ?>
 	<?php endif; ?>
 
+
+	<?php if ( is_singular( 'cities' ) ) { ?>
+        
+        <?php include(TEMPLATEPATH . '/inc/city-schema.php'); ?>
+
+    <?php } elseif (is_page('connect') ) { ?>
+
+	<?php } else { ?>
+
+        <?php if( get_field('general_rich_snippet', 'options') ): ?>
+            <?php the_field('general_rich_snippet', 'options'); ?>
+        <?php endif; ?>    
+
+	<?php } ?>
+
         <header id="header">
             
             <?php if ( get_field( 'display_settings_header_cov', 'options' ) ): ?>

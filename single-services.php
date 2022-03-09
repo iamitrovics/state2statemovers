@@ -152,6 +152,69 @@ $container = get_theme_mod( 'understrap_container_type' );
                             </div>
                         </div>
                         <!-- // contentn  -->
+
+
+                    <div id="city-reviews">
+                        <h4>Reviews</h4>
+                        <div class="row reviews-list">
+
+                        <?php
+                            $post_objects = get_field('reviews_list_service_single');
+
+                            if( $post_objects ): ?>
+                                <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
+                                    <?php setup_postdata($post); ?>
+
+
+                                <div class="col-md-6">
+                                    <div class="review-item">
+                                        <div class="star-area">
+                                            <span class="mr-star-rating"> 
+
+                                                <?php if (get_field('rating_reviewer') == '5') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } elseif (get_field('rating_reviewer') == '4') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } elseif (get_field('rating_reviewer') == '3') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } elseif (get_field('rating_reviewer') == '2') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } elseif (get_field('rating_reviewer') == '1') { ?>
+                                                    <i class="fas fa-star"></i>
+                                                <?php } ?>   
+
+                                            </span>
+                                        </div>
+                                        <div class="review-text">
+                                            <?php the_field('review_content_text'); ?>
+                                        </div>
+                                        <!-- /.review-text -->
+                                        <span class="review-author"><?php the_title(); ?></span>
+                                    </div>
+                                    <!-- /.review-item -->
+                                </div>
+                                <!-- /.col-md-6 -->
+
+                                <?php endforeach; ?>
+                            <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                        <?php endif; ?>             
+
+                        </div>
+                        <!-- /.row -->
+
+                    </div>
+                    <!-- // city reviews  -->
+
                     </div>
                     <!-- /.col-lg-9 -->
                     <div class="col-lg-3">
@@ -169,6 +232,105 @@ $container = get_theme_mod( 'understrap_container_type' );
         <!-- /.inner-page-in -->
     </div>
     <!-- /.inner-page -->
+
+
+    <?php
+    $imageID = get_field('featured_image_service_cont');
+    $image = wp_get_attachment_image_src( $imageID, 'galthumb-image' );
+    $alt_text = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+    ?> 
+
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org/", 
+    "@type": "Product", 
+    "name": "<?php the_title(); ?>",
+    "image": "<?php echo $image[0]; ?>",
+    "description": "<?php the_field('short_description_serv', false, false); ?>",
+    "brand": {
+        "@type": "Brand",
+        "name": "State to State Moving"
+    },
+
+
+    <?php $post_objects = get_field('reviews_list_service_single'); ?>
+        <?php $count = count(get_field('reviews_list_service_single')); ?>
+        <?php $rowCount = $count; //GET THE COUNT ?>    
+
+ 
+
+       "review": [
+        
+            <?php $i = 1; ?>
+
+
+                <?php foreach( $post_objects as $post): // variable must be called $post (IMPORTANT) ?>
+                    <?php setup_postdata($post); ?>
+
+
+                {
+                    "@type": "Review",
+                    "name": "<?php the_field('city_test'); ?>",
+                    "reviewBody": "<?php the_field('review_content_text', false, false); ?>",
+                    "reviewRating": {
+                    "@type": "Rating",
+
+                    <?php if (get_field('rating_reviewer') == '5') { ?>
+                        "ratingValue": "5",
+                    <?php } elseif (get_field('rating_reviewer') == '4') { ?>
+                        "ratingValue": "4",
+                    <?php } elseif (get_field('rating_reviewer') == '3') { ?>
+                        "ratingValue": "3",
+                    <?php } elseif (get_field('rating_reviewer') == '2') { ?>
+                        "ratingValue": "2",
+                    <?php } elseif (get_field('rating_reviewer') == '1') { ?>
+                        "ratingValue": "1",
+                    <?php } ?>  
+
+                    "bestRating": "5",
+                    "worstRating": "1"
+                    },
+                    "datePublished": "<?php echo get_the_date( 'F j, Y' ); ?>",
+                    "author": {"@type": "Person", "name": "<?php the_title(''); ?>"},
+                    "publisher": {"@type": "Organization", "name": "State2State Movers"}
+                }
+
+
+                <?php if($i < $rowCount): ?>
+                    ,
+                <?php endif; ?>
+
+
+                
+                
+
+                <?php
+                $rating = get_field('rating_reviewer');
+                $ratingsArray[$i++] += get_field('rating_reviewer');
+                ?>                
+
+                <?php endforeach; ?>
+            <?php wp_reset_postdata(); ?>
+        
+        ] ,
+
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            <?php
+                $totalRatings =  array_sum($ratingsArray);      
+                $totalCountReview = $totalRatings  / $rowCount ;
+            ?>
+            "ratingValue": "<?php echo round($totalCountReview , 1); ?>",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "<?php echo $rowCount; ?>",
+            "reviewCount": "<?php echo $rowCount; ?>"
+        }
+
+
+    }
+    </script>
 
 <?php
 get_footer();

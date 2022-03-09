@@ -95,8 +95,50 @@ get_header();
                     </div>
                     <!-- /.col-md-6 -->
 
+                    <script type="application/ld+json">
+							{
+								"@context": "https://schema.org",
+								"@graph": [{
+									"@type": "Review",
+									"author": {
+										"@type": "Person",
+										"name": "<?php the_title(); ?>"
+									},
+									"reviewBody": "<?php the_field('review_content_text', false, false); ?>",
+									"inLanguage": "en",
+									"reviewRating": {
+										"@type": "Rating",
+										"worstRating": "1",
+										"bestRating": "5",
+
+                                        <?php if (get_field('rating_reviewer') == '5') { ?>
+                                            "ratingValue": "5"
+                                        <?php } elseif (get_field('rating_reviewer') == '4') { ?>
+                                            "ratingValue": "4"
+                                        <?php } elseif (get_field('rating_reviewer') == '3') { ?>
+                                            "ratingValue": "3"
+                                        <?php } elseif (get_field('rating_reviewer') == '2') { ?>
+                                            "ratingValue": "2"
+                                        <?php } elseif (get_field('rating_reviewer') == '1') { ?>
+                                            "ratingValue": "1"
+                                        <?php } ?>                                           
+
+										
+
+
+									},
+									"itemReviewed": {
+										"@type": "Organization",
+										"@id": "https://state2statemovers.com/#organization",
+										"name": "State to State Moving"
+									}
+								}]
+							}
+							</script>                    
+
                 <?php endwhile; ?>
-                <?php wp_reset_postdata(); ?>                  
+                <?php wp_reset_postdata(); ?>  
+                                
 
             </div>
             <!-- /.row -->

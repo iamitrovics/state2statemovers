@@ -51,31 +51,32 @@
             margin-bottom: 30px;
         }
     }
-    .reviews-list {
-        .review-item {
-            border-bottom: 3px double #c5c0bc;
-            border-top-width: 3px;
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-            .star-area {
-                color: #FF8A00;
-                font-size: 16px;
-                margin-right: 5px;
-                margin-bottom: 30px;
-            }
-            .review-author {
-                @include subheading-font;
-                display: block;
+}
+
+.reviews-list {
+    .review-item {
+        border-bottom: 3px double #c5c0bc;
+        border-top-width: 3px;
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        .star-area {
+            color: #FF8A00;
+            font-size: 16px;
+            margin-right: 5px;
+            margin-bottom: 30px;
+        }
+        .review-author {
+            @include subheading-font;
+            display: block;
+            color: #222;
+            font-family: $crims-boldi;
+        }
+        .review-text {
+            margin-bottom: 20px;
+            p {
                 color: #222;
-                font-family: $crims-boldi;
-            }
-            .review-text {
-                margin-bottom: 20px;
-                p {
-                    color: #222;
-                    &:last-of-type {
-                        margin-bottom: 0;
-                    }
+                &:last-of-type {
+                    margin-bottom: 0;
                 }
             }
         }
