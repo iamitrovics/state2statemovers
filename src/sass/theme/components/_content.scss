@@ -203,6 +203,7 @@
                 margin-bottom: 20px;  
                 &.services-page-heading {
                     @include heading-font;
+                    color:$white;
                 }           
             }    
             li {
