@@ -39,7 +39,9 @@ $container = get_theme_mod( 'understrap_container_type' );
         
         <?php include(TEMPLATEPATH . '/inc/city-schema.php'); ?>
 
-    <?php } elseif (is_page('connect') ) { ?>
+    <?php } elseif (is_page_template('page-templates/reviews-template.php')) { ?>
+        
+        <?php include(TEMPLATEPATH . '/inc/reviews-schema.php'); ?>
 
 	<?php } else { ?>
 

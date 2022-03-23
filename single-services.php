@@ -148,6 +148,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 
                         <div id="masheader-content">
                             <div id="bottom-form">
+                                <div class="contact-title">
+                                    <span class="header-subtitle"><a href="tel:<?php the_field('main_phone_number_top_gen', 'options'); ?>">  Call <strong><?php the_field('main_phone_number_top_gen', 'options'); ?></strong>  to get a quote NOW</a></span>
+                                </div>
+                                <!-- // title  -->
                                 <?php include (TEMPLATEPATH . '/inc/inc_quote_form.php' ); ?>
                             </div>
                         </div>
