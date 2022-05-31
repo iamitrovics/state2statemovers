@@ -462,11 +462,12 @@
 
 #inner-header {
     text-align: center;
-    padding-top: 30px;
-    padding-bottom: 15px;
+    padding-top: 60px;
+    padding-bottom: 30px;
     background-color: #5C4341;
     @include bp(lg-down) {
         padding-bottom: 30px;
+        padding-top: 40px;
     }
     h1 {
         @include page-title;
@@ -680,4 +681,8 @@
         -o-transform: scaleY(1);
         transform: scaleY(1);
     }
+}
+
+#masheader-content .white-heading {
+    color:$white;
 }

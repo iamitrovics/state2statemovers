@@ -416,7 +416,8 @@
     display: inline-block;
     color: $brown;
     font-size: 1.188em;
-    font-family: $crims-boldi;
+    font-family: $crims-bold;
+    font-style: italic;
     &:hover {
         color: $orange;
     }

@@ -15,7 +15,7 @@ get_header();
         <div class="row">
             <div class="col-md-12">
                 <div id="masheader-content">
-                    <h1><?php the_field('main_title_reviews_page_header'); ?></h1>
+                    <h1 class="white-heading"><?php the_field('main_title_reviews_page_header'); ?></h1>
                     <span class="header-subtitle"><?php the_field('main_subtitle_reviews_page'); ?></span>
                     <!-- /.header-subtitle -->
                     <div class="get-quote">

@@ -69,7 +69,8 @@
             @include subheading-font;
             display: block;
             color: #222;
-            font-family: $crims-boldi;
+            font-family: $crims-bold;
+            font-style: italic;
         }
         .review-text {
             margin-bottom: 20px;

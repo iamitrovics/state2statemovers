@@ -52,13 +52,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<?php } ?>
 
         <header id="header">
-            
-            <?php if ( get_field( 'display_settings_header_cov', 'options' ) ): ?>
-            <div id="cor-notice">
-                <?php the_field('notice_text_header_cov', 'options'); ?>
-            </div>
-            <?php else: ?>
-            <?php endif; ?>
 
             <div class="menu-overlay"></div>
             <div class="main-menu-sidebar">

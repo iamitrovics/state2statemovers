@@ -5246,11 +5246,6 @@ if (typeof jQuery === 'undefined') {
 }(document, jQuery);
 (function ($) {
   jQuery(document).ready(function () {
-    setTimeout(function () {
-      $(".page-wrapper").css({
-        "padding-top": $("#header").height()
-      });
-    }, 600);
     $('#cookie-notice').addClass('slide-up');
     $('#close-notice, #accept-cookie').click(function (e) {
       e.preventDefault();

@@ -18,12 +18,12 @@ get_header();
                         <?php 
                         $values = get_field( 'custom_title_estimate_header' );
                         if ( $values ) { ?>
-                            <h1><?php the_field('custom_title_estimate_header'); ?></h1>
+                            <h1 class="white-heading"><?php the_field('custom_title_estimate_header'); ?></h1>
                         <?php 
                         } else { ?>
                             <h1><?php the_title(); ?></h1>
                         <?php } ?>
-                        <span class="header-subtitle"><a href="<?php the_field('button_link_estimate_header'); ?>"><?php the_field('button_label_header_estimate') ;?></a></span>
+                        <span class="header-subtitle white-heading"><a href="<?php the_field('button_link_estimate_header'); ?>"><?php the_field('button_label_header_estimate') ;?></a></span>
                         <!-- /.header-subtitle -->
                         <?php include (TEMPLATEPATH . '/inc/inc_quote_form.php' ); ?>
                     </div>
