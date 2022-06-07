@@ -51,39 +51,46 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<?php } ?>
 
+	<div class="menu-overlay"></div>
+	<div class="main-menu-sidebar visible-xs visible-sm visible-md" id="menu">
+
+		<header>
+			<a href="javascript:;" class="close-menu-btn"><img src="<?php bloginfo('template_directory'); ?>/img/ico/close-x.svg" alt=""></a>
+		</header>
+		<!-- // header  -->
+
+
+		<nav id="sidebar-menu-wrapper">
+			<img src="<?php the_field('website_logo_general', 'options'); ?>" alt="" class="mobile-logo">
+			<div id="menu">    
+				<ul class="nav-links">
+					<?php
+					wp_nav_menu( array(
+						'menu'              => 'mobile',
+						'theme_location'    => 'mobile',
+						'depth'             => 2,
+						'container'         => false,
+						'container_class'   => 'collapse navbar-collapse',
+						'container_id'      => false,
+						'menu_class'        => 'nav navbar-nav',
+						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+						'items_wrap' => '%3$s',
+						'walker'            => new wp_bootstrap_navwalkermobile())
+					);
+					?>  
+				</ul>
+			</div>
+			<!-- // menu  -->
+
+		</nav> 
+		<!-- // sidebar menu wrapper  -->
+
+	</div>
+	<!-- // main menu sidebar  -->	    
+
         <header id="header">
 
-            <div class="menu-overlay"></div>
-            <div class="main-menu-sidebar">
-                <header class="visible-xs visible-sm visible-md">
-                    <a href="javascript:;" class="close-menu-btn">Close</a>
-                </header>
-                <!-- // header  -->        
-                <div id="mobile__brand">
-                    <img src="<?php the_field('website_logo_general', 'options'); ?>" alt="<?php bloginfo('name'); ?>">
-                </div>
-                <!-- // brand  -->
-                <div id="menu">
-                    <ul class="nav-links">
-                        <?php
-                        wp_nav_menu( array(
-                            'menu'              => 'mobile',
-                            'theme_location'    => 'mobile',
-                            'depth'             => 2,
-                            'container'         => false,
-                            'container_class'   => 'collapse navbar-collapse',
-                            'container_id'      => false,
-                            'menu_class'        => 'nav navbar-nav',
-                            'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                            'items_wrap' => '%3$s',
-                            'walker'            => new wp_bootstrap_navwalkermobile())
-                        );
-                        ?>  
-                    </ul>                    
-                </div>
-                <!-- // menu  -->
-            </div>
-            <!-- // mobile menu  -->
+
             <div id="menu_area" class="menu-area">
                 <div class="container-fluid">
                     <div class="row">
@@ -123,16 +130,17 @@ $container = get_theme_mod( 'understrap_container_type' );
                                     <!-- /.top-phone -->
 
                                 </div>
-                                <div id="mobile-menu--btn">
-                                    <span class="menu-btn">
-                                    <a href="javascript:;">
+
+                            <div id="mobile-menu--btn" class="d-lg-none">
+                                <a href="javascript:;">
                                     <span></span>
                                     <span></span>
                                     <span></span>
-                                    </a>
-                                    </span> 
-                                </div>
-                                <!-- /#mobile-menu--btn -->
+                                    <div class="clearfix"></div>
+                                </a>
+                            </div>
+                            <!-- // mobile  -->	
+                                
                             </nav>
                         </div>
                         <!-- /.col-md-12 -->
