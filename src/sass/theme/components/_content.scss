@@ -330,6 +330,7 @@
     text-align: center;
     font-family: $open-reg;
     bottom: 0;
+    display: none;
     &.slide-up {
         -webkit-animation-name: slideInUp;
         animation-name: slideInUp;
@@ -337,6 +338,7 @@
         animation-duration: 1s;
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
+        display: block!important;
     }
     &.slide-down {
         -webkit-animation-name: slideOutDown;
@@ -345,6 +347,7 @@
         animation-duration: 1s;
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
+        opacity: 0;
     }
     &-in {
         padding: 15px 30px;
@@ -664,3 +667,4 @@
 .page-wrapper {
     padding-top: 70px;
 }
+

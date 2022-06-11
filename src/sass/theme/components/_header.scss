@@ -395,6 +395,36 @@
                         padding-top: 10px;
                         padding-bottom: 20px;
                     }
+                    .your-state, .your-stateto {
+                        position: absolute;
+                        top:29px;
+                        right:12px;
+                        // &:after {
+                        //     content:'';
+                        //     @include centre(both);
+                        //     font-size: 20px;
+                        //     background: url('../img/ico/map-marker-alt-light.svg') no-repeat;
+                        //     background-size:13px;
+                        //     background-position: center center;
+                        //     width: 24px;
+                        //     height: 24px;
+                        //     z-index: 9999;                
+                        // }
+                        input {
+                            width: 34px;
+                            height: 34px;
+                            text-align: center;
+                            line-height: 34px;
+                            border:none;
+                            color:$white;
+                            background-color: $orange;
+                            border-radius: 6px;
+                            padding:0px;
+                            font-size: 14px;
+                            position: relative;
+                            z-index: 4000;
+                        }
+                    }                    
                     .bootstrap-select {
                         width: 100%;
                         &.show {
@@ -714,4 +744,20 @@
     .clearfix {
         clear: both;
     }       
+}
+
+.pinned {
+    position: relative;
+    &:after {
+        content:'';
+        @include centre(both);
+        font-size: 20px;
+        background: url('../img/ico/map-marker-alt-light.svg') no-repeat;
+
+        background-size:13px;
+        background-position: center center;
+        width: 24px;
+        height: 24px;
+        z-index: 9999;
+    }
 }

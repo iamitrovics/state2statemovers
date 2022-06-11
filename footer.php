@@ -120,6 +120,124 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<?php the_field('footer_code_snippet', 'options'); ?>
 	<?php endif; ?>
 
+    <script>
+
+jQuery(document).ready(function($) {
+
+    //Add pins on page load
+    $('input[name="your-state"]').parent().addClass('pinned');
+    $('input[name="your-stateto"]').parent().addClass('pinned');
+
+    // Add pins when field has no value, either on change or blur (leaving the field)
+    $('input[name="zip-from"]').on('change', function() {
+      if ($(this).val().length === 0) {
+        $(this).parent('span').siblings('span').addClass('pinned');
+        $(this).parent('span').siblings('span').find('input[name="your-state"]').val('');
+      }
+    });
+    $('input[name="zip-from"]').blur(function() {
+      if ($(this).val().length === 0) {
+        $(this).parent('span').siblings('span').addClass('pinned');
+        $(this).parent('span').siblings('span').find('input[name="your-state"]').val('');
+      }
+    });
+    $('input[name="zip-to"]').on('change', function() {
+      if ($(this).val().length === 0) {
+        $(this).parent('span').siblings('span').addClass('pinned');
+        $(this).parent('span').siblings('span').find('input[name="your-stateto"]').val('');
+      }
+    });
+    $('input[name="zip-to"]').blur(function() {
+      if ($(this).val().length === 0) {
+        $(this).parent('span').siblings('span').addClass('pinned');
+        $(this).parent('span').siblings('span').find('input[name="your-stateto"]').val('');
+      }
+    });
+
+    //Trigger API check for Zip from state
+    $('input[name="zip-from"]').mouseout(function(){
+        var zip = $(this).val();
+        var stateFrom = $(this).parent('span').siblings('span').find('input[name="your-state"]');
+
+        var api_key = 'AIzaSyAkitxoIA55jYyfHIt871IKgOUK4EV4KG0';
+        if(zip.length){
+            //make a request to the google geocode api with the zipcode as the address parameter and your api key
+            $.get('https://maps.googleapis.com/maps/api/geocode/json?address='+zip+'&key='+api_key).then(function(response){
+            //parse the response for a list of matching city/state
+            var possibleLocalities = geocodeResponseToCityState(response, stateFrom);
+            //Add state letters to State field
+            $(stateFrom).val(possibleLocalities[0].state);
+            });
+        }
+    });
+
+    //Trigger API check for Zip to state
+    $('input[name="zip-to"]').mouseout(function(){
+        var zip = $(this).val();
+        var stateTo = $(this).parent('span').siblings('span').find('input[name="your-stateto"]');
+
+        var api_key = 'AIzaSyAkitxoIA55jYyfHIt871IKgOUK4EV4KG0';
+        if(zip.length){
+            //make a request to the google geocode api with the zipcode as the address parameter and your api key
+            $.get('https://maps.googleapis.com/maps/api/geocode/json?address='+zip+'&key='+api_key).then(function(response){
+            //parse the response for a list of matching city/state
+            var possibleLocalities = geocodeResponseToCityState(response, stateTo);
+            //fillCityAndStateFields(possibleLocalities, stateTo);
+            $(stateTo).val(possibleLocalities[0].state);
+            });
+        }
+    });
+
+
+    function geocodeResponseToCityState(geocodeJSON, state) { //will return and array of matching {city,state} objects
+      var parsedLocalities = [];
+      $(state).parent().removeClass('pinned');
+      //$('#state').parent().removeClass('pinned');
+      if(geocodeJSON.results.length) {
+        for(var i = 0; i < geocodeJSON.results.length; i++){
+          var result = geocodeJSON.results[i];
+
+          var locality = {};
+          for(var j=0; j<result.address_components.length; j++){
+            var types = result.address_components[j].types;
+            for(var k = 0; k < types.length; k++) {
+              if(types[k] == 'locality') {
+                locality.city = result.address_components[j].long_name;
+              } else if(types[k] == 'administrative_area_level_1') {
+                locality.state = result.address_components[j].short_name;
+              }
+            }
+          }
+          parsedLocalities.push(locality);
+
+          //check for additional cities within this zip code
+          if(result.postcode_localities){
+            for(var l = 0; l<result.postcode_localities.length;l++) {
+              parsedLocalities.push({city:result.postcode_localities[l],state:locality.state});
+            }
+          }
+        }
+      } else {
+        // $('#state').parent().addClass('pinned');
+        // $('#state').val('');
+        $(state).parent().addClass('pinned');
+        $(state).val('');
+        console.log('error: no address components found');
+      }
+      return parsedLocalities;
+    }
+
+});
+
+  </script>
+
+  <script>
+    if (!sessionStorage.alreadyClicked) {
+        jQuery('#cookie-notice').addClass('slide-up');
+        sessionStorage.alreadyClicked = 1;
+    }
+  </script> 	
+
 </body>
 </html>
 

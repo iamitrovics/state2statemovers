@@ -30,6 +30,7 @@ $understrap_includes = array(
 	'/settings.php',                        // Theme Settings
 	'/customize.php',                       // Customize theme
     '/ctp.php',                             // Custom Post Types	
+	'/forms.php',                           // Quote Forms
     // '/blocks.php',                          // Custom Post Types	
 );
 
@@ -72,39 +73,6 @@ function init_remove_support(){
     $post_type = 'post';
     remove_post_type_support( $post_type, 'editor');
 }
-
-
-function cf7_post_to_third_party($form)
-{
-    $formMappings = array(
-        'first_name' => array('your-first'),
-		'last_name' => array('your-last'),
-		'email' => array('your-email'),
-		'phone' => array('your-tel'),
-		'move_date' => array('your-date'),
-		'move_size' => array('home-size'),
-		'from_zip' => array('your-zip'),
-		'to_zip' => array('your-city'),
-		'car_trailer' => array('your-trailer'),
-		'car_make' => array('car-make'),
-		'car_model' => array('car-model'),
-		'car_year' => array('car-year'),
-        'source_details[url]' => array('dynamichidden-672'),
-        'source_details[title]' => array('dynamichidden-673')
-    );
-    $handler = new MovingSoftFormHandler($formMappings);
-    $handler->setOrigin('https://state2statemovers.com')->handleCF7($form, [341, 340]);
-}
-add_action('wpcf7_mail_sent', 'cf7_post_to_third_party', 10, 1);
-
-
-function skip_mail_when_testing($f){
-    $submission = WPCF7_Submission::get_instance();
-    $handler = new MovingSoftFormHandler();
-    
-    return $handler->getIP() == '206.189.212.83'; //testing Bot IP address
-}
-add_filter('wpcf7_skip_mail','skip_mail_when_testing');
 
 
 function fb_filter_query( $query, $error = true ) {
