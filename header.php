@@ -59,7 +59,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</header>
 		<!-- // header  -->
 
-
 		<nav id="sidebar-menu-wrapper">
 			<img src="<?php the_field('website_logo_general', 'options'); ?>" alt="" class="mobile-logo">
 			<div id="menu">    
@@ -89,8 +88,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<!-- // main menu sidebar  -->	    
 
         <header id="header">
-
-
             <div id="menu_area" class="menu-area">
                 <div class="container-fluid">
                     <div class="row">
@@ -115,9 +112,6 @@ $container = get_theme_mod( 'understrap_container_type' );
                                         );
                                         ?>  
                                     </ul>  
-                                    
-                                    <div class="top-search"><a href="#"><i class="fal fa-search"></i></a></div>
-                                    <!-- /.top-search -->
 
                                     <?php 
                                     $values = get_field( 'phone_number_city_sidebar' );
@@ -150,30 +144,6 @@ $container = get_theme_mod( 'understrap_container_type' );
                 <!-- /.continer-fluid -->
             </div>
             <!-- // desktop menu  -->
-            <div id="top-search-form">
-                <span class="close-btn"><i class="fal fa-times"></i></span>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <form role="search" method="get" id="searchform"
-                                class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                                <div>
-                                    <label class="screen-reader-text" for="s"><?php _x( 'Search for:', 'label' ); ?></label>
-                                    <i class="fal fa-search"></i>
-                                    <input type="text" placeholder="Search" value="<?php echo get_search_query(); ?>" name="s" id="s" />
-       
-                                </div>
-                            </form>
-
-                        </div>
-                        <!-- /.col-md-12 -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.container -->
-            </div>
-            <!-- /#top-search-form -->
         </header>
         <!-- /#header -->
 

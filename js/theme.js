@@ -5043,15 +5043,7 @@
       e.preventDefault();
       $(this).attr("autocomplete", "off");
     });
-    $(".date-picker-input").attr("autocomplete", "off"); //toggle search
-
-    $('#menu_area .navbar .top-search a').click(function () {
-      $('#top-search-form').slideToggle();
-    });
-    $('#top-search-form .close-btn').click(function () {
-      $('#top-search-form').slideUp();
-    }); //$('#category-page .category-box .category-content h2').matchHeight();
-
+    $(".date-picker-input").attr("autocomplete", "off");
     $(function () {
       $('.quote-cta--single a.btn-cta').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
