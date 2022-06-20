@@ -668,3 +668,89 @@
     padding-top: 70px;
 }
 
+.filter-sidebar {
+    .blog-filters {
+        background: #d3a46c;
+        padding:50px;
+        border-radius: 12px;
+        h3 {
+            font-size: 38px;
+            margin-bottom: 30px;
+            font-family: $font-heading;
+        }
+        ul {
+            padding:0px;
+            margin:0px;
+            li {
+                display: block;
+                position: relative;
+                padding-left: 25px;
+                &:before {
+                    content:'';
+                    width: 8px;
+                    height: 8px;
+                    background-color: $orange;
+                    display: block;
+                    position: absolute;
+                    left:0px;
+                    top:15px;
+                }
+                a {
+                    font-size: 20px;
+                    color:$brown;
+                    font-family: $open-bold;
+                    &:hover {
+                        color:$orange;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.blog-filters {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    @include bp(sm-down) {
+        margin-top: 30px;
+    }
+    ul {
+        text-align: center;
+        li {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 25px;
+            margin-bottom: 15px;
+            @include bp(sm-down) {
+                margin-top: 5px;
+                margin-bottom: 5px;
+                margin-right: 10px;
+            }
+            &:last-of-type {
+                margin-right: 0;
+            }
+            a {
+                display: block;
+                color: #fff;
+                border-radius: 8px;
+                background-color: rgb(79, 57, 60);
+                padding: 3px 32px;
+                padding-top: 5px;
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 18px;
+                &.active, &:hover {
+                    background-color: $orange;
+                }
+                @include bp(sm-down) {
+                    font-size: 0.7em;
+                }
+            }
+            &.current-cat {
+               a {
+                    background-color: $orange;
+               }
+            }
+        }
+    }
+}
