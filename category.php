@@ -16,18 +16,7 @@
     <div class="inner-page" id="blog-listing">
         <div class="inner-page-in">
 
-        <?php
-          $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1; // get current page number
-          $args = array(
-            'posts_per_page' => 8, // the value from Settings > Reading by default
-            'paged'          => $current_page // current page
-          );
-          query_posts( $args );
-           
-          $wp_query->is_archive = true;
-          $wp_query->is_home = false;
-           
-          while(have_posts()): the_post(); ?>
+        <?php while ( have_posts() ) : the_post(); ?>
                               
             <div class="blog-item">
                 <div class="row">
