@@ -395,7 +395,7 @@
                         padding-top: 10px;
                         padding-bottom: 20px;
                     }
-                    .your-state, .your-stateto {
+                    .your-state, .your-stateto , span[data-name="your-state"], span[data-name="your-stateto"] {
                         position: absolute;
                         top:29px;
                         right:12px;
